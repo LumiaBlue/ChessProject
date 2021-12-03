@@ -3,6 +3,7 @@
 
 class Rook:
     def _init_(self, color, row, col):
+        self.type = "rook"
         self.color = color
         self.row = row
         self.col = col
@@ -34,3 +35,9 @@ class Rook:
             board[new_row][new_col] = self
             self.row = new_row
             self.col = new_col
+    
+    def get_color(self):
+        return self.color
+    
+    def get_type(self):
+        return self.type
