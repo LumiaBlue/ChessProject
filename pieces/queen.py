@@ -58,13 +58,13 @@ class Queen:
                     valid = False
         elif horizontal:
             #increment through columns between current and target positions
-            for i in range(self.col + add, new_col):
+            for i in range(self.col + add_col, new_col):
                 #check occupancy
                 if board[self.row][i] != 0:
                     valid = False
-        elif verticla:
+        elif vertical:
             #increment through rows between current and target positions
-            for i in range(self.row + add, new_row):
+            for i in range(self.row + add_row, new_row):
                 #check occupancy
                 if board[i][new_col] != 0:
                     valid = False
