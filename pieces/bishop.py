@@ -1,5 +1,5 @@
 #Skye Smith
-#class for bishop pieces
+#class for Bishop pieces
 
 class Bishop:
     #params: color - string; row - int; col - int
