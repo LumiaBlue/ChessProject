@@ -2,12 +2,18 @@
 #class for rook pieces
 
 class Rook:
+    #params: color - string; row - int; col - int
+    #initialize an object of class Bishop
+    #returns: none
     def _init_(self, color, row, col):
         self.type = "rook"
         self.color = color
         self.row = row
         self.col = col
 
+    #params: new_row - int; new_col - int; board - 2D list
+    #check whether or not a given move is valid, considering the piece's current position as the origin point
+    #returns: valid- boolean
     def validate_move(self, new_row, new_col, board):
         valid = True
 
@@ -47,14 +53,23 @@ class Rook:
         
         return valid
                             
-
+    #params: new_row - int; new_col - int; board - 2D list
+    #update the object values for row and column, and "move" piece from former position to new position in board
+    #returns: none 
     def update(self, new_row, new_col, board):
-        board[new_row][new_col] = self
-        self.row = new_row
-        self.col = new_col
+            board[new_row][new_col] = self
+            board[self.row][self.col] = 0
+            self.row = new_row
+            self.col = new_col
     
+    #params: none
+    #return the current value of an object's color variable
+    #returns: self.color - string
     def get_color(self):
         return self.color
     
+    #params: none
+    #returns the current value of an object's type variable
+    #returns: self.type - string
     def get_type(self):
         return self.type
