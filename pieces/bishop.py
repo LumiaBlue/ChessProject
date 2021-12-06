@@ -11,6 +11,19 @@ class Rook:
     def validate_move(self, new_row, new_col, board):
         valid = True
 
+
+        add_row = 0
+        if new_row > self.row:
+            add_row = 1
+        else:
+            add_row = -1
+
+        add_col = 0
+        if new_col > self.col:
+            add_col = 1
+        else:
+            add_col = -1
+
         dist = abs(new_col - self.col)
         if dist != abs(new_row - self.row):
             valid = False
@@ -26,9 +39,9 @@ class Rook:
                             
 
     def update(self, new_row, new_col, board):
-            board[new_row][new_col] = self
-            self.row = new_row
-            self.col = new_col
+        board[new_row][new_col] = self
+        self.row = new_row
+        self.col = new_col
     
     def get_color(self):
         return self.color
