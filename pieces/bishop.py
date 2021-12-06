@@ -27,10 +27,12 @@ class Rook:
         dist = abs(new_col - self.col)
         if dist != abs(new_row - self.row):
             valid = False
-        elif 
-
-
-
+        
+        temp_col = self.col
+        for i in range(self.row + add_row, new_row):
+            temp_col += add_col
+            if board[temp_col][i] != 0:
+                valid = False
         
         if board[new_row][new_col] != 0 and board[new_row][new_col].get_color() == self.color:
             valid = False
