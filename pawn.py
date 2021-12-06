@@ -4,6 +4,7 @@
 class Rook:
     def _init_(self, color, row, col):
         self.type = "queen"
+        self.has_moved = False
         self.color = color
         self.row = row
         self.col = col
