@@ -46,9 +46,9 @@ class Rook:
         elif abs(new_row - self.row) == 2:
             #is the move in the correct direction?
             if self.row + (2 * add) != new_row:
-                valid False
+                valid = False
             #has the pawn moved previously?
-            elif has_moved:
+            elif self.has_moved:
                 valid = False
         #is the move not one space towards the opposite color edge of the board?
         elif self.row + add != new_row:
