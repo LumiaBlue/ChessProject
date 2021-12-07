@@ -1,4 +1,7 @@
 #Cat Jones
+
+from pieces import rook, bishop, queen, king, knight, pawn
+
 print("it's your turn!")
 
 #current coordinate
@@ -7,11 +10,12 @@ piece = input("Please enter in the current coordinates of the piece you would li
 (col,row) = piece.split(',')
 
 #after asking for new move
-board[row][col].validate_move()
+board[row][col].validate_move(new_row, new_col, board)
 
 
 
 new_coor = (new_col,new_row)
+
 
 
 #Cat Jones
