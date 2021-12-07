@@ -1,5 +1,5 @@
 #Cat Jones
-#class for Queen pieces
+#class for King piece
 
 class King:
     def _init_(self, color, row, col):
@@ -12,20 +12,12 @@ class King:
         valid = True 
         if self.row == new_row and self.col == new_col:
             valid = False
-        elif self.row == new_row:
-            for i in range (self.row, new_row):
-                if 
 
+        elif abs(new_col - self.col) > 1 or abs(new_row - self.row) > 1:
+                valid = False
+                #difference one or zero (can't both be zero)
 
-            #difference one or zero (can't both be zero)
-        elif self.col == new_col:
-            for i in range (self.col, new_col):
-                if 
-            #difference one or zero (can't both be zero)
-
-        else:
-            valid = False
-
+        #Is target position occupied by same-color piece
         if board[new_row][new_col] != 0 and board[new_row][new_col].get_color() == self.color:
             valid = False
 

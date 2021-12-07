@@ -47,7 +47,7 @@ class Rook:
         else:
             valid = False
         
-        #Is target position occupied by smae-color piece
+        #Is target position occupied by same-color piece
         if board[new_row][new_col] != 0 and board[new_row][new_col].get_color() == self.color:
             valid = False
         

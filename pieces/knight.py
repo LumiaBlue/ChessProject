@@ -1,5 +1,5 @@
 #Cat Jones
-#class for Queen pieces
+#class for Knight piece
 
 class Knight:
     def _init_(self, color, row, col):
