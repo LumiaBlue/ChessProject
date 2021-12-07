@@ -37,9 +37,10 @@ captured_black = 0
 if self.color(new_coor) == other.color(cur_coor):
     # if board([x][y]).get_color == white
     captured_black = captured_black + 1
+    #cap_color undefined
 elif cap_color == 'W' or cap_color == 'w':
     captured_white = captured_white + 1
 
-print(f"{}")
+print(f"Captured by White:{captured_black} | Captured by Black:{captured_white}")
 #--------
 
