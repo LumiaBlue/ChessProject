@@ -3,7 +3,7 @@
 from pieces import rook, bishop, queen, king, knight, pawn
 
 def main():
-    checkmate = False
+    checkmate = False 
     while checkmate = False:         
 
         print("ahoy there matey, it's your turn!")
