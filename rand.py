@@ -6,7 +6,9 @@ piece = input("Please enter in the current coordinates of the piece you would li
 #this splits the inputted coordinates by the comma, which is there for user visual-convience
 (col,row) = piece.split(',')
 
-#example txt
+board[row][col].validate_move()
+
+
 
 new_coor = (new_col,new_row)
 
