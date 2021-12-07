@@ -39,3 +39,6 @@ class King:
 
     def get_row(self):
         return self.row
+    
+    def check(row, col, board):
+        
