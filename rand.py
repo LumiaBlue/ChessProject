@@ -6,15 +6,13 @@ piece = input("Please enter in the current coordinates of the piece you would li
 #this splits the inputted coordinates by the comma, which is there for user visual-convience
 (col,row) = piece.split(',')
 
-#Example of accessing piece functions through 2d-list
-#board[row][col].validate_move()
-
 
 
 new_coor = (new_col,new_row)
 
 
 #Cat Jones
+#this chunk is here for user convience, allowing them to rethink their move and change it if they wish
 confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
 if confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n':
     print("Please pick a valid option.")
