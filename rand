@@ -3,8 +3,8 @@ cur_coor = (self.col,self.row)
 #current coordinate
 
 print("it's your turn!")
-new_col = input("Enter the x-coordinate for your next move: )
-new_row = input("Enter the y-coordinate for your next move: )
+
+
 
 new_coor = (new_col,new_row)
 
@@ -32,9 +32,9 @@ captured_black = 0
 #other.color????????
 if self.color(new_coor) == other.color(cur_coor):
     # if board([x][y]).get_color == white
-        captured_black = captured_black + 1
-    elif cap_color == 'W' or cap_color == 'w':
-        captured_white = captured_white + 1
+    captured_black = captured_black + 1
+elif cap_color == 'W' or cap_color == 'w':
+    captured_white = captured_white + 1
 
 print(f"{}")
 #--------

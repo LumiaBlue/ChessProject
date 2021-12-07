@@ -14,7 +14,7 @@ class King:
             valid = False
         elif self.row == new_row:
             for i in range (self.row, new_row):
-                if
+                if 
 
 
             #difference one or zero (can't both be zero)
