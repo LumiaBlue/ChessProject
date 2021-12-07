@@ -11,6 +11,7 @@ def main():
     #this splits the inputted coordinates by the comma, which is there for user visual-convience
     (col,row) = piece.split(',')
 
+    #DO WORK YOU PAID FOR THIS TRAUMA
     #after asking for new move
     board[row][col].validate_move(new_row, new_col, board)
 
