@@ -1,5 +1,4 @@
 #Cat Jones
-#--------
 print("it's your turn!")
 
 #current coordinate
@@ -12,7 +11,7 @@ piece = input("Please enter in the current coordinates of the piece you would li
 new_coor = (new_col,new_row)
 
 
-
+#Cat Jones
 confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
 if confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n':
     print("Please pick a valid option.")
@@ -30,7 +29,7 @@ elif confirm_move == 'N' or confirm_move == 'n':
 
 
 
-#--------
+#Cat Jones
 captured_white = 0
 captured_black = 0
 #in the main file 
