@@ -26,7 +26,7 @@ elif confirm_move == 'N' or confirm_move == 'n':
     new_col = input("Enter the x-coordinate for your next move: )
     new_row = input("Enter the y-coordinate for your next move: )
 
-    new_coor = (new_col,new_row)
+    new_coor = (new_col,new_row) 
 
     
 #--------
