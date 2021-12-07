@@ -1,7 +1,7 @@
 #Skye Smith
-#class for Pawm pieces
+#class for Pawn pieces
 
-class Rook:
+class Pawn:
     #params: color - string; row - int; col - int
     #initialize an object of class Pawn
     #returns: none
