@@ -1,12 +1,17 @@
+#Cat Jones
 #--------
-cur_coor = (self.col,self.row)
-#current coordinate
-
 print("it's your turn!")
+
+#current coordinate
+piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
+#this splits the inputted coordinates by the comma, which is there for user visual-convience
+(col,row) = piece.split(',')
 
 
 
 new_coor = (new_col,new_row)
+
+
 
 confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
 if confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n':
