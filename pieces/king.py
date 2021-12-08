@@ -64,16 +64,26 @@ class King:
     def checkmate(self, board):
         checkmate = True
 
+        #cycle through three possible changes in row
         for row_add in [-1, 0, 1]:
+            #exit loop if/when a possible move for this king object is discovered
             if not(checkmate):
                 break
+            
+            #cycle through three possible changes in col
             for col_add in [-1, 0, 1]:
+                #asumption is that current pos is in check, skips testing the current pos
                 if row != 0 or col != 0:
                     temp_row = self.row + row_add
                     temp_col = self.row + col_add
-                    checkmate = self.check(temp_row, temp_col, board)
+                    #is the prospective move valid?
+                    checkmate = self.validate_move(temp_row, temp_col, board)
+                
+                #escape loop if a possible move is discovered
                 if not(checkmate):
                     break
+        
+        return checkmate
 
     
     #Skye Smith
