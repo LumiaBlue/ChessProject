@@ -8,6 +8,7 @@ class Knight:
         self.row = row
         self.col = col
 
+    #is the move valid given the current position of the knight?
     def validate_move(self, new_row, new_col, board):
 
         valid = True 
