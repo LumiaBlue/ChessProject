@@ -49,11 +49,12 @@ def main():
 
             
 
-
+    #Cat Jones
     def captured():
-        #Cat Jones
+
         captured_white = 0
         captured_black = 0
+
         #in the main file 
         #other.color????????
         if self.color(new_coor) == other.color(cur_coor):
