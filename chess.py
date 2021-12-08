@@ -1,4 +1,6 @@
-#Cat Jones and Skye Smith
+#Cat Jones and Skye Smith 
+
+#Skye Smith
 from pieces import rook, bishop, queen, king, knight, pawn
 
 def main():
@@ -15,21 +17,41 @@ def main():
 
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
-    while checkmate = False:         
+    while checkmate = False:   
+
         #Cat Jones
         print("ahoy, it's your turn!")
 
         #current coordinate
         piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
+        #!!!!!!!!add validation for making sure theres a comma!!!!!!!
         #this splits the inputted coordinates by the comma, which is there for user visual-convience
         (col,row) = piece.split(',')
 
-        #after asking for new move
+        #!!!!!!!if the value == 0, empty space bad!!!!!!
+
+        #validation that the piece they wish to play is actually on the board
+        if col < 0 or col > 7 or row < 0 or col > 7:
+            valid = False
+            piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
+            (col,row) = piece.split(',')
+
+        new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
+        #!!!!!!!!add validation for making sure theres a comma!!!!!!!!
+        (new_col,new_row) = new_move.split(',')
+
+        if new_col < 0 or new_col > 7 or new_row < 0 or new_col > 7:
+            valid = False
+            new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
+            (new_col,new_row) = new_move.split(',')
+
+        #after asking for new move validate the move is possible for the piece they selected
         board[row][col].validate_move(new_row, new_col, board)
 
+        while 
 
 
-        new_coor = (new_col,new_row)
+        #!!!!!!!new_coor = (new_col,new_row)!!!!!!!
 
 
 
