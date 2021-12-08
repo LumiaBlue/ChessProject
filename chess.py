@@ -24,7 +24,10 @@ def main():
 
         #current coordinate
         piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
-        #!!!!!!!!add validation for making sure theres a comma!!!!!!!
+        #add validation for making sure theres a comma
+        if "," not in piece:
+            print("Whoops, please include a comma between your coordinates!")
+            piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
         #this splits the inputted coordinates by the comma, which is there for user visual-convience
         (col,row) = piece.split(',')
 
@@ -43,7 +46,10 @@ def main():
             (col,row) = piece.split(',')
 
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
-        #!!!!!!!!add validation for making sure theres a comma!!!!!!!!
+        #add validation for making sure theres a comma
+        if "," not in new_move:
+            print("Whoops, please include a comma between your coordinates!")
+            new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
         (new_col,new_row) = new_move.split(',')
 
         if new_col < 0 or new_col > 7 or new_row < 0 or new_col > 7:
@@ -85,7 +91,6 @@ def main():
         captured_black = 0
 
         #in the main file 
-        #other.color????????
         if self.color(new_coor) == other.color(cur_coor):
             # if board([x][y]).get_color == white
             captured_black = captured_black + 1
@@ -93,5 +98,5 @@ def main():
         elif cap_color == 'W' or cap_color == 'w':
             captured_white = captured_white + 1
 
-        print(f"Captured by White:{captured_black} | Captured by Black:{captured_white}")
+        print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
 
