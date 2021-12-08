@@ -101,7 +101,7 @@ def main():
                     all_valid = True
 
 
-
+#-----------------------edited^^^
         #Cat Jones
         #this chunk is here for user convience, allowing them to rethink their move and change it if they wish
         confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
