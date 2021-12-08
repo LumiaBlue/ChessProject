@@ -22,6 +22,9 @@ class King:
         elif abs(new_col - self.col) > 1 or abs(new_row - self.row) > 1:
                 valid = False
                 #difference one or zero (can't both be zero)
+        
+        elif self.check(new_row, new_col, board):
+            valid = False
 
         #Is target position occupied by same-color piece
         if board[new_row][new_col] != 0 and board[new_row][new_col].get_color() == self.color:
@@ -56,8 +59,26 @@ class King:
         return self.row
     
     #Skye Smith
+    #params: board - 2D-list
+    #determines if this king object is in checkmate on the given board, assumes current position is in check
+    def checkmate(self, board):
+        checkmate = True
+
+        for row_add in [-1, 0, 1]:
+            if not(checkmate):
+                break
+            for col_add in [-1, 0, 1]:
+                if row != 0 or col != 0:
+                    temp_row = self.row + row_add
+                    temp_col = self.row + col_add
+                    checkmate = self.check(temp_row, temp_col, board)
+                if not(checkmate):
+                    break
+
+    
+    #Skye Smith
     #params: row - int; col - int; board - 2D-list
-    #determines whether or not a king of this object's color would be in check at the given position
+    #determines whether or not a king of this object's color would be in check at the given position on the given board
     #returns: check - boolean
     def check(self, row, col, board):
         check = False
