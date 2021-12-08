@@ -28,14 +28,12 @@ def main():
         #this splits the inputted coordinates by the comma, which is there for user visual-convience
         (col,row) = piece.split(',')
 
+        #!!!!!!!if the value == 0, empty space bad!!!!!!
         if board[row][col] == 0:
             valid = False
             print("Please select a piece to put in play.")
             piece = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
             (col,row) = piece.split(',')
-
-
-        #!!!!!!!if the value == 0, empty space bad!!!!!!
 
         #validation that the piece they wish to play is actually on the board
         if col < 0 or col > 7 or row < 0 or col > 7:
@@ -59,8 +57,8 @@ def main():
 
         while 
 
-
-        #!!!!!!!new_coor = (new_col,new_row)!!!!!!!
+        #new coordinate
+        new_coor = (new_col,new_row)
 
 
 
