@@ -1,4 +1,4 @@
-
+#Cat Jones and Skye Smith
 from pieces import rook, bishop, queen, king, knight, pawn
 
 def main():
@@ -13,6 +13,7 @@ def main():
             [pawn.Pawn("white",6,0), pawn.Pawn("white",6,1), pawn.Pawn("white",6,2), pawn.Pawn("white",6,3), pawn.Pawn("white",6,4), pawn.Pawn("white",6,5), pawn.Pawn("white",6,6), pawn.Pawn("white",6,7)],
             [rook.Rook("white",7,0), knight.Knight("white",7,1), bishop.Bishop("white",7,2), queen.Queen("white",7,3), king.King("white",7,4), bishop.Bishop("white",7,5), knight.Knight("white",7,6), rook.Rook("white",7,7)]]
 
+    #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
     while checkmate = False:         
         #Cat Jones
@@ -47,10 +48,9 @@ def main():
             new_coor = (new_col,new_row) 
 
             
-        #--------
 
 
-
+    def captured():
         #Cat Jones
         captured_white = 0
         captured_black = 0
@@ -64,5 +64,4 @@ def main():
             captured_white = captured_white + 1
 
         print(f"Captured by White:{captured_black} | Captured by Black:{captured_white}")
-        #--------
 

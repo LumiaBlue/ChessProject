@@ -33,14 +33,17 @@ class Knight:
         if board[new_row][new_col] != 0 and board[new_row][new_col].get_color() == self.color:
             valid = False
         return valid                                    
-
+    
+    #otherwise named "def actually_move():"
     def update(self, new_row, new_col, board):
         board[new_row][new_col] = self
         self.row = new_row
         self.col = new_col
     
+    #get color for processing information
     def get_color(self):
         return self.color
     
+    #what type of piece is it?
     def get_type(self):
         return self.type
