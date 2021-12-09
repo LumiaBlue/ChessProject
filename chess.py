@@ -152,7 +152,12 @@ def new_move_validation(input, piece, board):
             else:
                 all_valid = True
 
-    return row, col
+    return new_row, new_col
+
+def print_board(board):
+    for row in range(8):
+        for col in range(8):
+            print(f"{board[row][col]:4}")
 
 main()
 
