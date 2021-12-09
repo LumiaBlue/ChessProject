@@ -39,7 +39,7 @@ def main():
         captured_black = 0
 
         #in the main file 
-        if self.color(new_coor) == other.color(cur_coor):
+        if self.color(new_move) == other.color():
             # if board([x][y]).get_color == white
             captured_black = captured_black + 1
             #cap_color undefined
