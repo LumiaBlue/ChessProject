@@ -30,7 +30,7 @@ def main():
 
         #current coordinate
         raw_cord = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
-        piece, row, col = current_position_validation(raw_cord)
+        piece, row, col = current_position_validation(raw_cord, player_color, board)
 
         #new move
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
