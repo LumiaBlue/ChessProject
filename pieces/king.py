@@ -73,7 +73,7 @@ class King:
             #cycle through three possible changes in col
             for col_add in [-1, 0, 1]:
                 #asumption is that current pos is in check, skips testing the current pos
-                if row != 0 or col != 0:
+                if row_add != 0 or col_add != 0:
                     temp_row = self.row + row_add
                     temp_col = self.row + col_add
                     #is the prospective move valid?
