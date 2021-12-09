@@ -101,20 +101,30 @@ def main():
                     all_valid = True
 
 
-#-----------------------edited^^^
+#-----------------------edited^^^ and or or?
         #Cat Jones
         #this chunk is here for user convience, allowing them to rethink their move and change it if they wish
-        confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
-        if confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n':
-            print("Please pick a valid option.")
-            confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
-        elif confirm_move == 'Y' or confirm_move == 'y':
-            #proceed to move piece
-        elif confirm_move == 'N' or confirm_move == 'n':
-            new_col = input("Enter the x-coordinate for your next move: )
-            new_row = input("Enter the y-coordinate for your next move: )
+        all_valid = False 
 
-            new_coor = (new_col,new_row) 
+        confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
+        while not all_valid:
+
+            valid = True 
+
+            if valid and (confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n'):
+                valid = False
+                print("Please pick a valid option.")
+                confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
+
+            if valid and confirm_move == 'N' or confirm_move == 'n':
+                valid = False
+                new_col = input("Enter the x-coordinate for your next move: )
+                new_row = input("Enter the y-coordinate for your next move: )
+
+                new_cord = (new_col,new_row) 
+
+            elif valid and (confirm_move == 'Y' or confirm_move == 'y'):
+                #proceed to move piece
 
             
 
@@ -133,4 +143,5 @@ def main():
             captured_white = captured_white + 1
 
         print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
+        
 
