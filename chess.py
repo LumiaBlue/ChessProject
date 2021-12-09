@@ -26,6 +26,8 @@ def main():
         #Cat Jones
         print(f"Ahoy, it's your turn {player_color}!")
 
+        print_board(board)
+
         #current coordinate
         raw_cord = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
         piece, row, col = current_position_validation(raw_cord)
@@ -35,11 +37,11 @@ def main():
         row, col = new_move_validation(new_move, piece, board)
 
         piece.update(row, col, board)
-        print_board(board)
 
         #end end end
         #Cat Jones
         if checkmate:
+            print_board(board)
             #gives interactive opportunity to play again, restarting the simulation
             print(f"Game over! {player_color.upper()} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
