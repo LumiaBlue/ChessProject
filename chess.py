@@ -17,12 +17,14 @@ def main():
 
     board = [] + INIT_BOARD
 
+    player_color = "white"
+
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
     while checkmate == False:   
 
         #Cat Jones
-        print("Ahoy, it's your turn!")
+        print(f"Ahoy, it's your turn {player_color}!")
 
         #current coordinate
         raw_cord = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
@@ -32,24 +34,31 @@ def main():
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
         row, col = new_move_validation(new_move, piece, board)
 
+        piece.update(row, col, board)
+        print_board(board)
+
+        
 
         #end end end
         #Cat Jones
         if checkmate:
+            #----color.upper????
             #gives interactive opportunity to play again, restarting the simulation
-            print(f"Game over! {color.upper} player has captured the rival king! Thanks for playing Skye&Cat's chess simulation!")
+            print(f"Game over! {player_color.upper()} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
-            if play_again.upper != "Y" and play_again.upper != "N":
+            while play_again.upper != "Y" and play_again.upper != "N":
                 print("Slip of the keyboard? Try again.")
                 play_again = input("Would you like to play again? Y or N: ")
 
-            if play_again.upper == "N":
+            if play_again.upper() == "N":
                 print("Ok, goodbye :)")
                 quit
 
-            if play_again.upper == "Y":
+            if play_again.upper() == "Y":
                 checkmate = False
                 board = [] + INIT_BOARD
+                player_color = "white"
+
 
 #-----------------------------------------------------------------------------------------------------------------------------      
       
