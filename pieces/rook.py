@@ -5,7 +5,7 @@ class Rook:
     #params: color - string; row - int; col - int
     #initialize an object of class Rook
     #returns: none
-    def _init_(self, color, row, col):
+    def __init__(self, color, row, col):
         self.type = "rook"
         self.color = color
         self.row = row

@@ -5,7 +5,7 @@ class Pawn:
     #params: color - string; row - int; col - int
     #initialize an object of class Pawn
     #returns: none
-    def _init_(self, color, row, col):
+    def __init__(self, color, row, col):
         self.type = "pawn"
         self.has_moved = False
         self.color = color

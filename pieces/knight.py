@@ -2,7 +2,7 @@
 #class for Knight piece
 
 class Knight:
-    def _init_(self, color, row, col):
+    def __init__(self, color, row, col):
         self.type = "knight"
         self.color = color
         self.row = row

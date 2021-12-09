@@ -5,7 +5,7 @@ class King:
     #params: color - string; row - int; col - int
     #initialize an object of class King
     #returns: king object
-    def _init_(self, color, row, col):
+    def __init__(self, color, row, col):
         self.type = "king"
         self.color = color
         self.row = row
