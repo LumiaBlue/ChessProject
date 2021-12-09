@@ -37,8 +37,6 @@ def main():
         piece.update(row, col, board)
         print_board(board)
 
-        
-
         #end end end
         #Cat Jones
         if checkmate:
