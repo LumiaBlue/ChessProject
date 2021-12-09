@@ -60,11 +60,11 @@ def captured(board, ):
     captured_white = 0
     captured_black = 0
 
-    #in the main file 
     if self.color(new_move) == other.color():
-        # if board([x][y]).get_color == white
-        captured_black = captured_black + 1
-        #cap_color undefined
+        
+        if board([x][y]).get_color == white
+            captured_black = captured_black + 1
+    #cap_color undefined
     elif cap_color == 'W' or cap_color == 'w':
         captured_white = captured_white + 1
 
@@ -77,7 +77,7 @@ def current_position_validation(input, board):
     raw_cord = input
 
     #validate all of the weird things
-    #current move
+    #current position
     while not all_valid:
 
         valid = True
@@ -152,12 +152,7 @@ def new_move_validation(input, piece, board):
             else:
                 all_valid = True
 
-    return new_row, new_col
-
-def print_board(board):
-    for row in range(8):
-        for col in range(8):
-            print(f"{board[row][col]:4}")
+    return row, col
 
 main()
 
