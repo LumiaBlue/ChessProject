@@ -34,7 +34,7 @@ def main():
         #end end end
         if checkmate = True:
             #----color.upper????
-            print(f"Game over! {color.upper} player has caputured the rival king! Thanks for playing Skye and Cat's chess simulation!")
+            print(f"Game over! {color.upper} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
             if play_again.upper != Y and play_again.upper != N:
                 print("Slip of the keyboard? Try again.")
@@ -46,7 +46,7 @@ def main():
                 checkmate = False
                 INIT_BOARD
 
-            
+#-----------------------------------------------------------------------------------------------------------------------------      
       
 #Cat Jones
 def captured(board, ):
