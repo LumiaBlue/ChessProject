@@ -20,7 +20,7 @@ def main():
     while checkmate = False:   
 
         #Cat Jones
-        print("ahoy, it's your turn!")
+        print("Ahoy, it's your turn!")
 
         #current coordinate
         raw_cord = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
@@ -30,33 +30,7 @@ def main():
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
         row, col = new_move_validation(new_move, piece, board)
 
-#-----------------------edited^^^ and or or?
-        #Cat Jones
-        #this chunk is here for user convience, allowing them to rethink their move and change it if they wish 
-
-        confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
-
-        all_valid = False
-
-        while not all_valid:
-
-            valid = True 
-
-            if valid and (confirm_move.lower() != 'y' and confirm_move.lower() != 'n'):
-                valid = False
-                print("Please pick a valid option.")
-                confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
-
-            if valid and confirm_move.lower() == 'n':
-                valid = False
-                new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
-
-                new_cord = (new_col,new_row) 
-
-            elif valid and (confirm_move == 'Y' or confirm_move == 'y'):
-                #proceed to move piece
-
-            
+#-----------------------edited^^^         
 
     #Cat Jones
     def captured():
@@ -154,4 +128,6 @@ def new_move_validation(new_move, piece, board):
                     all_valid = True
 
     return
+
+
 
