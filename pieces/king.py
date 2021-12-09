@@ -58,6 +58,14 @@ class King:
     def get_row(self):
         return self.row
     
+    #params: none
+    #string conversion of the object, represent color and type
+    #returns string
+    def __str__(self):
+        color = self.color[0]
+        piece_type = "K"
+        return color + piece_type
+    
     #Skye Smith
     #params: board - 2D-list
     #determines if this king object is in checkmate on the given board, assumes current position is in check

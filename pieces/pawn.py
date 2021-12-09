@@ -77,3 +77,11 @@ class Pawn:
     #returns: self.type - string
     def get_type(self):
         return self.type
+    
+    #params: none
+    #string conversion of the object, represent color and type
+    #returns string
+    def __str__(self):
+        color = self.color[0]
+        piece_type = "P"
+        return color + piece_type
