@@ -34,16 +34,20 @@ def main():
 
 
         #end end end
+        #Cat Jones
         if checkmate:
             #----color.upper????
+            #gives interactive opportunity to play again, restarting the simulation
             print(f"Game over! {color.upper} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
-            if play_again.upper != Y and play_again.upper != N:
+            if play_again.upper != "Y" and play_again.upper != "N":
                 print("Slip of the keyboard? Try again.")
                 play_again = input("Would you like to play again? Y or N: ")
+
             if play_again.upper == "N":
                 print("Ok, goodbye :)")
                 quit
+
             if play_again.upper == "Y":
                 checkmate = False
                 board = [] + INIT_BOARD
