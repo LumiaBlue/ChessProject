@@ -3,6 +3,7 @@
 #Skye Smith
 from pieces import rook, bishop, queen, king, knight, pawn
 
+#Cat Jones
 INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop("black",0,2), queen.Queen("black",0,3), king.King("black",0,4), bishop.Bishop("black",0,5), knight.Knight("black",0,6), rook.Rook("black",0,7)],
               [pawn.Pawn("black",1,0), pawn.Pawn("black",1,1), pawn.Pawn("black",1,2), pawn.Pawn("black",1,3), pawn.Pawn("black",1,4), pawn.Pawn("black",1,5), pawn.Pawn("black",1,6), pawn.Pawn("black",1,7)],
               [0, 0, 0, 0, 0, 0, 0, 0],
@@ -14,7 +15,6 @@ INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop
 
 def main():
 
-    #Cat Jones
     board = INIT_BOARD
 
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
