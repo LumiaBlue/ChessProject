@@ -127,7 +127,7 @@ def new_move_validation(new_move, piece, board):
                 else:
                     all_valid = True
 
-    return
+    return 
 
 
 
