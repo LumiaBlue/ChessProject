@@ -29,9 +29,26 @@ def main():
         #new move
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
         row, col = new_move_validation(new_move, piece, board)
+
+
+        #end end end
+        if checkmate = True:
+            #----
+            print(f"Game over! {color.upper} player has caputured the rival king! Thanks for playing Skye and Cat's chess simulation!")
+            play_again = input("Would you like to play again? Y or N: ")
+            if play_again.upper != Y and play_again.upper != N:
+                print("Slip of the keyboard? Try again.")
+                play_again = input("Would you like to play again? Y or N: ")
+            if play_again.upper == "N":
+                quit
+            if play_again.upper == "Y":
+                checkmate = False
+                INIT_BOARD
+
+            
       
 #Cat Jones
-def captured():
+def captured(board, ):
 
     captured_white = 0
     captured_black = 0
@@ -128,7 +145,7 @@ def new_move_validation(input, piece, board):
             else:
                 all_valid = True
 
-    return 
+    return row, col
 
 
 
