@@ -15,7 +15,7 @@ INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop
 
 def main():
 
-    board = INIT_BOARD
+    board = [] + INIT_BOARD
 
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
@@ -46,7 +46,7 @@ def main():
                 quit
             if play_again.upper == "Y":
                 checkmate = False
-                board = INIT_BOARD
+                board = [] + INIT_BOARD
 
 #-----------------------------------------------------------------------------------------------------------------------------      
       
