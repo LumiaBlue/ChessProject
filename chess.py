@@ -24,6 +24,58 @@ def main():
 
         #current coordinate
         raw_cord = input("Please enter in the current coordinates of the piece you would like to place in play (ex: 2,4): ")
+        piece, row, col = current_position_validation(raw_cord)
+
+        #new move
+        new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
+        row, col = new_move_validation(new_move, piece, board)
+
+#-----------------------edited^^^ and or or?
+        #Cat Jones
+        #this chunk is here for user convience, allowing them to rethink their move and change it if they wish 
+
+        confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
+
+        all_valid = False
+
+        while not all_valid:
+
+            valid = True 
+
+            if valid and (confirm_move.lower() != 'y' and confirm_move.lower() != 'n'):
+                valid = False
+                print("Please pick a valid option.")
+                confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
+
+            if valid and confirm_move.lower() == 'n':
+                valid = False
+                new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
+
+                new_cord = (new_col,new_row) 
+
+            elif valid and (confirm_move == 'Y' or confirm_move == 'y'):
+                #proceed to move piece
+
+            
+
+    #Cat Jones
+    def captured():
+
+        captured_white = 0
+        captured_black = 0
+
+        #in the main file 
+        if self.color(new_coor) == other.color(cur_coor):
+            # if board([x][y]).get_color == white
+            captured_black = captured_black + 1
+            #cap_color undefined
+        elif cap_color == 'W' or cap_color == 'w':
+            captured_white = captured_white + 1
+
+        print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
+        
+
+def current_position_validation(raw_cord, board):
         piece = 0
         all_valid = False
 
@@ -66,8 +118,9 @@ def main():
             if valid:
                 all_valid = True
 
-        #new move
-        new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
+    return piece, row, col
+
+def new_move_validation(new_move, piece, board):
         all_valid = False
 
         while not all_valid:
@@ -100,48 +153,5 @@ def main():
                 else:
                     all_valid = True
 
-
-#-----------------------edited^^^ and or or?
-        #Cat Jones
-        #this chunk is here for user convience, allowing them to rethink their move and change it if they wish
-        all_valid = False 
-
-        confirm_move = input(f"Please confirm that you would like to move this piece to {new_cord} with a Y or N: ")
-        while not all_valid:
-
-            valid = True 
-
-            if valid and (confirm_move != 'Y' and confirm_move != 'y' and confirm_move != 'N' and confirm_move != 'n'):
-                valid = False
-                print("Please pick a valid option.")
-                confirm_move = input(f"Please confirm that you would like to move this piece to {new_coor} with a Y or N: ")
-
-            if valid and confirm_move == 'N' or confirm_move == 'n':
-                valid = False
-                new_col = input("Enter the x-coordinate for your next move: )
-                new_row = input("Enter the y-coordinate for your next move: )
-
-                new_cord = (new_col,new_row) 
-
-            elif valid and (confirm_move == 'Y' or confirm_move == 'y'):
-                #proceed to move piece
-
-            
-
-    #Cat Jones
-    def captured():
-
-        captured_white = 0
-        captured_black = 0
-
-        #in the main file 
-        if self.color(new_coor) == other.color(cur_coor):
-            # if board([x][y]).get_color == white
-            captured_black = captured_black + 1
-            #cap_color undefined
-        elif cap_color == 'W' or cap_color == 'w':
-            captured_white = captured_white + 1
-
-        print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
-        
+    return
 
