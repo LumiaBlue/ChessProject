@@ -77,7 +77,7 @@ def captured(board, ):
 
     print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
     
-def current_position_validation(input, board):
+def current_position_validation(input, player_color, board):
     piece = 0
     all_valid = False
 
