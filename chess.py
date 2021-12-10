@@ -41,17 +41,15 @@ def main():
 
         piece.update(row, col, board)
 
-        #capture_piece = captured(board, piece, player_color, row, col, captured_white, captured_black)
-        #if capture_piece (==#?):
-            #get.color
-            #if capture_piece == 1: 
-                #captured_black + 1
-            #if capture_piece == 2:
-                #capture_white + 1
-            #if capture_piece == 3:
-                #captured_white + 0 and captured black + 0
-        #print(captured_visual(captured_white, captured_black))
-        #maybe???
+        #checks if an opposing piece is captured with the execution of the new move
+        capture_piece = captured(board, row, col)
+        if capture_piece == True:
+            if player_color == "white":
+                captured_black + 1
+            if player_color == "black":
+                captured_white + 1
+
+        print(captured_visual(captured_white, captured_black))
 
 
         #end end end
@@ -80,20 +78,19 @@ def main():
 #-----------------------------------------------------------------------------------------------------------------------------      
       
 #Cat Jones
-def captured(board, piece, player_color, row, col, captured_white, captured_black):
+def captured(board, row, col):
 
-    #captured = False
+    captured = False
 
-    #if value == 1 (white cap black)
-    #if value == 2 (black cap white)
-    #if value == 3 (none captured)
+    if board[row][col] != 0:
+        captured = True
+    else: 
+        captured = False
 
-    #if new_move piece.get color != player_color:        
-        #if player_color == white:
-            captured_black = captured_black + 1
-        #if player_color == black:
-            captured_white = captured_white + 1
+return captured
 
+
+#Cat Jones
 def captured_visual(captured_white, captured_black):
     print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
     
@@ -145,6 +142,7 @@ def current_position_validation(input, player_color, board):
 
     return piece, row, col
 
+
 def new_move_validation(input, piece, board):
     all_valid = False
 
@@ -182,9 +180,11 @@ def new_move_validation(input, piece, board):
 
     return new_row, new_col
 
+
 def print_board(board):
     for row in range(8):
         for col in range(8):
             print(f"{board[row][col]:4}")
+
 
 main()
