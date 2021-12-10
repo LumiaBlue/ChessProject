@@ -99,7 +99,7 @@ def main():
         #end end end
         #Cat Jones
         if checkmate:
-            print_board(board)
+            print_board(board, captured_black, captured_white)
             #gives interactive opportunity to play again, restarting the simulation
             print(f"Game over! {player_color.upper()} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
