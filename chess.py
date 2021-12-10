@@ -46,9 +46,9 @@ def main():
         capture_piece = captured(board, row, col)
         if capture_piece == True:
             if player_color == "white":
-                captured_black + 1
+                captured_black += 1
             if player_color == "black":
-                captured_white + 1
+                captured_white += 1
 
         print(captured_visual(captured_white, captured_black))
 
@@ -86,8 +86,6 @@ def captured(board, row, col):
 
     if board[row][col] != 0:
         captured = True
-    else: 
-        captured = False
 
 return captured
 
