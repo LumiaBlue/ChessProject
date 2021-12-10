@@ -87,7 +87,7 @@ def captured(board, row, col):
     if board[row][col] != 0:
         captured = True
 
-return captured
+    return captured
 
 
 #Cat Jones
