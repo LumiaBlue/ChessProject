@@ -50,9 +50,14 @@ class Pawn:
             #has the pawn moved previously?
             elif self.has_moved:
                 valid = False
+            #is their a piece in the way?
+            elif board[self.row + add][new_col] != 0:
+                valid = False
         #is the move not one space towards the opposite color edge of the board?
         elif self.row + add != new_row:
             vaid = False
+        elif board[new_row][new_col] != 0:
+            valid = False
         
         return valid
         
