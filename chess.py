@@ -76,7 +76,8 @@ def main():
 
 
 #-----------------------------------------------------------------------------------------------------------------------------      
-      
+
+
 #Cat Jones
 def captured(board, row, col):
 
@@ -181,6 +182,7 @@ def new_move_validation(input, piece, board):
     return new_row, new_col
 
 
+#Skye Smith
 def print_board(board):
     for row in range(8):
         for col in range(8):
