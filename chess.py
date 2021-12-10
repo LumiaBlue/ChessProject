@@ -19,6 +19,9 @@ def main():
 
     player_color = "white"
 
+    captured_white = 0
+    captured_black = 0
+
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
     while checkmate == False:   
@@ -37,6 +40,18 @@ def main():
         row, col = new_move_validation(new_move, piece, board)
 
         piece.update(row, col, board)
+
+        #capture_piece = captured(board, player_color, row, col, captured_white, captured_black)
+        #if capture_piece (==#?):
+            #get.color
+            #if capture_piece == 1: 
+                #captured_black + 1
+            #if capture_piece == 2:
+                #capture_white + 1
+            #if capture_piece == 3:
+                #captured_white + 0 and captured black + 0
+        #print(captured_visual(captured_white, captured_black))
+
 
         #end end end
         #Cat Jones
@@ -57,15 +72,20 @@ def main():
                 checkmate = False
                 board = [] + INIT_BOARD
                 player_color = "white"
+                captured_white = 0
+                captured_black = 0
 
 
 #-----------------------------------------------------------------------------------------------------------------------------      
       
 #Cat Jones
-def captured(board, ):
+def captured(board, player_color, row, col, captured_white, captured_black):
 
-    captured_white = 0
-    captured_black = 0
+    #captured = False
+
+    #if value == 1 (white cap black)
+    #if value == 2 (black cap white)
+    #if value == 3 (none captured)
 
     if self.color(new_move) == other.color():
         
@@ -75,8 +95,10 @@ def captured(board, ):
     elif cap_color == 'W' or cap_color == 'w':
         captured_white = captured_white + 1
 
+def captured_visual(captured_white, captured_black):
     print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
     
+
 def current_position_validation(input, player_color, board):
     piece = 0
     all_valid = False
