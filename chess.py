@@ -39,6 +39,7 @@ def main():
         new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
         row, col = new_move_validation(new_move, piece, board)
 
+        #update board appearance
         piece.update(row, col, board)
 
         #checks if an opposing piece is captured with the execution of the new move
