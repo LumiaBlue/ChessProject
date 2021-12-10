@@ -51,6 +51,7 @@ def main():
             #if capture_piece == 3:
                 #captured_white + 0 and captured black + 0
         #print(captured_visual(captured_white, captured_black))
+        #maybe???
 
 
         #end end end
