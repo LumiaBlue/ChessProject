@@ -41,7 +41,7 @@ def main():
 
         piece.update(row, col, board)
 
-        #capture_piece = captured(board, player_color, row, col, captured_white, captured_black)
+        #capture_piece = captured(board, piece, player_color, row, col, captured_white, captured_black)
         #if capture_piece (==#?):
             #get.color
             #if capture_piece == 1: 
@@ -80,7 +80,7 @@ def main():
 #-----------------------------------------------------------------------------------------------------------------------------      
       
 #Cat Jones
-def captured(board, player_color, row, col, captured_white, captured_black):
+def captured(board, piece, player_color, row, col, captured_white, captured_black):
 
     #captured = False
 
@@ -88,13 +88,11 @@ def captured(board, player_color, row, col, captured_white, captured_black):
     #if value == 2 (black cap white)
     #if value == 3 (none captured)
 
-    if self.color(new_move) == other.color():
-        
-        if board([x][y]).get_color == white
+    #if new_move piece.get color != player_color:        
+        #if player_color == white:
             captured_black = captured_black + 1
-    #cap_color undefined
-    elif cap_color == 'W' or cap_color == 'w':
-        captured_white = captured_white + 1
+        #if player_color == black:
+            captured_white = captured_white + 1
 
 def captured_visual(captured_white, captured_black):
     print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
@@ -156,7 +154,7 @@ def new_move_validation(input, piece, board):
 
         valid = True
 
-        #add validation for making sure theres a comma
+        #add validation for making sure theres a comma and 2 numbers
         if valid and len(new_move) == 3 and new_move[0].isnumeric() and new_move[2].isnumeric() and new_move[1] == ",":
             print("Whoops, please format your coordinates correctly (ex: #,#)!") 
             new_move = input("Please enter the coordinates for the space you would like to move the selected piece to (ex: 1,6): ")
