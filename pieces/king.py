@@ -23,6 +23,7 @@ class King:
                 valid = False
                 #difference one or zero (can't both be zero)
         
+        #checking if the king is moving himself into a vunerable position by accident
         elif self.check(new_row, new_col, board):
             valid = False
 
