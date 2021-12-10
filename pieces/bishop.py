@@ -46,10 +46,10 @@ class Bishop:
         #use loop to step through spaces between current and target positions
         temp_col = self.col
         #add + or - 1 (add_row) to self.row so that the current position is not checked for occupancy
-        for i in range(self.row + add_row, new_row):
+        for i in range(self.row + add_row, new_row, add_row):
             #increment temp_col towards new_col
             temp_col += add_col
-            if board[temp_col][i] != 0:
+            if board[i][temp_col] != 0:
                 valid = False
         
         #is there a same-color piece at the target position?

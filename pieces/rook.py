@@ -30,7 +30,7 @@ class Rook:
         #check occupancy for horizontal move
         elif self.row == new_row:
             #increment through columns between current and target positions
-            for i in range(self.col + add, new_col):
+            for i in range(self.col + add, new_col, add):
                 #check occupancy
                 if board[self.row][i] != 0:
                     valid = False
@@ -38,7 +38,7 @@ class Rook:
         #check occupancy for vertical move
         elif self.col == new_col:
             #increment through rows between current and target positions
-            for i in range(self.row + add, new_row):
+            for i in range(self.row + add, new_row, add):
                 #check occupancy
                 if board[i][new_col] != 0:
                     valid = False

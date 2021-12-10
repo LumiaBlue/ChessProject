@@ -23,7 +23,6 @@ class King:
                 valid = False
                 #difference one or zero (can't both be zero)
         
-        #checking if the king is moving himself into a vunerable position by accident
         elif self.check(new_row, new_col, board):
             valid = False
 
@@ -38,6 +37,16 @@ class King:
     #returns: none                      
     def update(self, new_row, new_col, board):
         board[new_row][new_col] = self
+        board[self.row][self.col] = 0
+
+        #update ninth row of chess board
+        if self.color() == "white":
+            board[9][2] = new_row
+            board[9][3] = new_col
+        else:
+            board[9][0] = new_row
+            board[9][1] = new_col
+
         self.row = new_row
         self.col = new_col
     
@@ -86,7 +95,9 @@ class King:
                     temp_row = self.row + row_add
                     temp_col = self.row + col_add
                     #is the prospective move valid?
-                    checkmate = self.validate_move(temp_row, temp_col, board)
+                    if not(temp_row > 7 or temp_row < 0 or temp_col > 7 or temp_col < 0):
+                        if self.validate_move(temp_row, temp_col, board):
+                            checkmate = False
                 
                 #escape loop if a possible move is discovered
                 if not(checkmate):
@@ -114,7 +125,7 @@ class King:
         
         #check for vertical sightline above king
         if not(check):
-            for i in range(row - 1, -1):
+            for i in range(row - 1, -1, -1):
                 piece = board[i][col]
                 if piece != 0:
                     if piece.get_color() != self.color and (piece.get_type() == "rook" or piece.get_type() == "queen"):
@@ -134,7 +145,7 @@ class King:
 
         #check for horizontal sightline to the left
         if not(check):
-            for i in range(col - 1, -1):
+            for i in range(col - 1, -1, -1):
                 piece = board[row][i]
                 if piece != 0:
                     if piece.get_color() != self.color and (piece.get_type() == "rook" or piece.get_type() == "queen"):
@@ -153,22 +164,26 @@ class King:
                     break
                 temp_row = row + row_add
                 temp_col = col + col_add
-                obscured = False
-                while not(obscured) and (temp_row <= 7 and temp_row >= 0) and (temp_col <= 7 and temp_col >= 0):
+                while temp_row <= 7 and temp_row >= 0 and temp_col <= 7 and temp_col >= 0:
                     piece = board[temp_row][temp_col]
                     if piece != 0:
                         if piece.get_color() != self.color and (piece.get_type() == "bishop" or piece.get_type() == "queen"):
                             check = True
                         #if there is a piece, it will either place king in check, or obscure the line of attack from any pieces beyond it
                         break
+                        
+                    temp_row += row_add
+                    temp_col += col_add
         
         #L checks (Knight)
         if not(check):
             for d_row in [-2, -1, 1, 2]:
                 for d_col in [-2, -1, 1, 2]:
-                    if d_col != d_row:
-                        piece = board[row + row][col + col]
-                        if piece.get_type() == "knight" and piece.get_color() != self.color:
+                    knight_row = row + d_row
+                    knight_col = col + d_col
+                    if d_col != d_row and not(knight_row > 7 or knight_row < 0 or knight_col > 7 or knight_col < 0):
+                        piece = board[row + d_row][col + d_col]
+                        if piece != 0 and piece.get_type() == "knight" and piece.get_color() != self.color:
                             check = True
                             #break only if put in check, knights jump and line of attack can't be obscure
                             break

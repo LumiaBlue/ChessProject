@@ -37,7 +37,7 @@ class Queen:
         if self.row == new_row and self.col == new_col:
             valid = False
 
-        #is move either horizontal, vertical or diagonal?
+        #is move horizontal, vertical or diagonal?
         dist = abs(new_col - self.col)
         diagonal = dist == abs(new_row - self.row)
         horizontal = self.row == new_row and self.col != new_col
@@ -51,20 +51,20 @@ class Queen:
             #use loop to step through spaces between current and target positions
             temp_col = self.col
             #add + or - 1 (add_row) to self.row so that the current position is not checked for occupancy
-            for i in range(self.row + add_row, new_row):
+            for i in range(self.row + add_row, new_row,add_row):
                 #increment temp_col towards new_col
                 temp_col += add_col
-                if board[temp_col][i] != 0:
+                if board[i][temp_col] != 0:
                     valid = False
         elif horizontal:
             #increment through columns between current and target positions
-            for i in range(self.col + add_col, new_col):
+            for i in range(self.col + add_col, new_col, add_col):
                 #check occupancy
                 if board[self.row][i] != 0:
                     valid = False
         elif vertical:
             #increment through rows between current and target positions
-            for i in range(self.row + add_row, new_row):
+            for i in range(self.row + add_row, new_row, add_row):
                 #check occupancy
                 if board[i][new_col] != 0:
                     valid = False
