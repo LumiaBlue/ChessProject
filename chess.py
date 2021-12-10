@@ -2,7 +2,6 @@
 
 #Skye Smith
 from pieces import rook, bishop, queen, king, knight, pawn
-import copy
 
 #Cat Jones
 INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop("black",0,2), queen.Queen("black",0,3), king.King("black",0,4), bishop.Bishop("black",0,5), knight.Knight("black",0,6), rook.Rook("black",0,7)],
@@ -19,7 +18,7 @@ INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop
 
 def main():
 
-    board = copy.deepcopy(INIT_BOARD)
+    board = copy_board(INIT_BOARD)
 
     player_color = "white"
 
@@ -51,7 +50,7 @@ def main():
             #determine if king is in check after move
             if valid:
                 #copy the current board
-                temp_board = copy.deepcopy(board)
+                temp_board = copy_board(board)
 
                 #"move" the piece
                 #avoids .update, leaving pawn's has_moved variable unchanged 
@@ -108,7 +107,7 @@ def main():
 
             if play_again.upper() == "Y":
                 checkmate = False
-                board = copy.deepcopy(INIT_BOARD)
+                board = copy_board(INIT_BOARD)
                 player_color = "black"
                 captured_white = 0
                 captured_black = 0
@@ -216,25 +215,11 @@ def print_board(board):
             print(f"{piece:4}", end="")
         print()
 
-#def copy_board(board):
-#    copy = []
-#    for row in board:
-#        copy.append([] + row)
-#    
-#    return copy
-
-def create_board():
-    init = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop("black",0,2), queen.Queen("black",0,3), king.King("black",0,4), bishop.Bishop("black",0,5), knight.Knight("black",0,6), rook.Rook("black",0,7)],
-            [pawn.Pawn("black",1,0), pawn.Pawn("black",1,1), pawn.Pawn("black",1,2), pawn.Pawn("black",1,3), pawn.Pawn("black",1,4), pawn.Pawn("black",1,5), pawn.Pawn("black",1,6), pawn.Pawn("black",1,7)],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [pawn.Pawn("white",6,0), pawn.Pawn("white",6,1), pawn.Pawn("white",6,2), pawn.Pawn("white",6,3), pawn.Pawn("white",6,4), pawn.Pawn("white",6,5), pawn.Pawn("white",6,6), pawn.Pawn("white",6,7)],
-            [rook.Rook("white",7,0), knight.Knight("white",7,1), bishop.Bishop("white",7,2), queen.Queen("white",7,3), king.King("white",7,4), bishop.Bishop("white",7,5), knight.Knight("white",7,6), rook.Rook("white",7,7)],
-            #extra row to store coordinates of kings
-            #black_row, black_col, white_row, white_col
-            [0, 4, 7, 4]]
-    return init
+def copy_board(board):
+    copy = []
+    for row in board:
+        copy.append([] + row)
+    
+    return copy
 
 main()
