@@ -42,8 +42,9 @@ class Knight:
     
     #otherwise named "def actually_move():"
     def update(self, new_row, new_col, board):
-        board[new_row][new_col] = self
         board[self.row][self.col] = 0
+        board[new_row][new_col] = self
+        
         self.row = new_row
         self.col = new_col
     

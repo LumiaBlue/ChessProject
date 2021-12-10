@@ -36,8 +36,8 @@ class King:
     #update the object values for row and column, and "move" piece from former position to new position in board and change has_moved to True
     #returns: none                      
     def update(self, new_row, new_col, board):
-        board[new_row][new_col] = self
         board[self.row][self.col] = 0
+        board[new_row][new_col] = self
 
         #update ninth row of chess board
         if self.color() == "white":
@@ -75,36 +75,6 @@ class King:
         color = self.color[0]
         piece_type = "K"
         return color + piece_type
-    
-    #Skye Smith
-    #params: board - 2D-list
-    #determines if this king object is in checkmate on the given board, assumes current position is in check
-    def checkmate(self, board):
-        checkmate = True
-
-        #cycle through three possible changes in row
-        for row_add in [-1, 0, 1]:
-            #exit loop if/when a possible move for this king object is discovered
-            if not(checkmate):
-                break
-            
-            #cycle through three possible changes in col
-            for col_add in [-1, 0, 1]:
-                #asumption is that current pos is in check, skips testing the current pos
-                if row_add != 0 or col_add != 0:
-                    temp_row = self.row + row_add
-                    temp_col = self.row + col_add
-                    #is the prospective move valid?
-                    if not(temp_row > 7 or temp_row < 0 or temp_col > 7 or temp_col < 0):
-                        if self.validate_move(temp_row, temp_col, board):
-                            checkmate = False
-                
-                #escape loop if a possible move is discovered
-                if not(checkmate):
-                    break
-        
-        return checkmate
-
     
     #Skye Smith
     #params: row - int; col - int; board - 2D-list

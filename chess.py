@@ -2,6 +2,7 @@
 
 #Skye Smith
 from pieces import rook, bishop, queen, king, knight, pawn
+import copy
 
 #Cat Jones
 INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop("black",0,2), queen.Queen("black",0,3), king.King("black",0,4), bishop.Bishop("black",0,5), knight.Knight("black",0,6), rook.Rook("black",0,7)],
@@ -16,9 +17,10 @@ INIT_BOARD = [[rook.Rook("black",0,0), knight.Knight("black",0,1), bishop.Bishop
               #black_row, black_col, white_row, white_col
               [0, 4, 7, 4]]
 
+#Cat Jones
 def main():
 
-    board = copy_board(INIT_BOARD)
+    board = copy.deepcopy(INIT_BOARD)
 
     player_color = "white"
 
@@ -30,12 +32,10 @@ def main():
     #Start of the while loop, which continues under the condition that the king isn't in checkmate per the checkmate function.
     checkmate = False 
     while checkmate == False:   
+        print(f"Ahoy, it's your turn {player_color.upper()}!")
 
-        #Cat Jones
-        print(f"Ahoy, it's your turn {player_color}!")
-
-        print_board(board)
-        print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
+        #print current board to console
+        print_board(board, captured_black, captured_white)
 
         #user turn
         valid = False
@@ -58,10 +58,26 @@ def main():
                 temp_board[cur_row][cur_col] = 0
 
                 #assign king to the current player's king and check if it is in check with this move
+                if player_color == "black":
+                    #get cords of black king
+                    king_row = board[8][0]
+                    king_col = board[8][1]
+                else:
+                    #get cords of white king
+                    king_row = board[8][2]
+                    king_col = board[8][3]
+
                 king = board[king_row][king_col]
                 if king.check(king_row, king_col, temp_board):
                     print("Whoa there, that move places/leaves your king in check!")
-                    valid = False
+                    concede = validate_concession()
+                    if concede:
+                        valid = True
+                        row = cur_row
+                        col = cur_row
+                        checkmate = True
+                    else:
+                        valid = False
 
         #checks if an opposing piece is captured with the execution of the new move
         capture_piece = captured(board, row, col)
@@ -71,24 +87,14 @@ def main():
             if player_color == "black":
                 captured_white += 1
 
+        #move piece and update the board list
         piece.update(row, col, board)
 
-        #determine if opposing king has been placed in check
-        king_row = 0
-        king_col = 0
+        #switch active player
         if player_color == "white":
-            #get cords of black king
-            king_row = board[8][0]
-            king_col = board[8][1]
+            player_color = "black"
         else:
-            #get cords of white king
-            king_row = board[8][2]
-            king_col = board[8][3]
-        
-        king = board[king_row][king_col]
-
-        if king.check(king_row, king_col, board):
-            checkmate = king.checkmate(board)
+            player_color = "white"
 
         #end end end
         #Cat Jones
@@ -97,30 +103,32 @@ def main():
             #gives interactive opportunity to play again, restarting the simulation
             print(f"Game over! {player_color.upper()} player has captured the rival king! Thanks for playing Skye and Cat's chess simulation!")
             play_again = input("Would you like to play again? Y or N: ")
+
+            #validate user input
             while play_again.upper() != "Y" and play_again.upper() != "N":
                 print("Slip of the keyboard? Try again.")
                 play_again = input("Would you like to play again? Y or N: ")
 
+            #exit game if user doesn't want to play again
             if play_again.upper() == "N":
                 print("Ok, goodbye :)")
                 quit
-
+            
+            #reset to initial conditions
             if play_again.upper() == "Y":
                 checkmate = False
-                board = copy_board(INIT_BOARD)
-                player_color = "black"
+                board = copy.deepcopy(INIT_BOARD)
+                player_color = "white"
                 captured_white = 0
                 captured_black = 0
-        
-        if player_color == "white":
-            player_color = "black"
-        else:
-            player_color = "white"
 
 
 #-----------------------------------------------------------------------------------------------------------------------------      
       
 #Cat Jones
+#params: baord - 2d list; row - int; col - int
+#determines whether or not there is a piece at the given coordinates on the given board
+#return: captured - boolean
 def captured(board, row, col):
 
     captured = False
@@ -130,6 +138,11 @@ def captured(board, row, col):
 
     return captured
 
+#Cat Jones
+#params: input_cord - str; player_color - str; board - 2D list
+#accepts an initial string representating coordinates of the piece the player wants to select and validates this input, 
+#returning the selected piece, and the coordinates of that piece
+#return: piece - chess piece; row - int; col - int
 def current_position_validation(input_cord, player_color, board):
     piece = 0
     all_valid = False
@@ -177,6 +190,10 @@ def current_position_validation(input_cord, player_color, board):
 
     return piece, row, col
 
+#Cat Jones
+#params: input_cord - str; piece - object (one of chess pieces); board - 2D list
+#accepts an initial string of user input representing destination coordinates, and validates that input with the given piece and board and converts it into integer values
+#return: valid - boolean; new_row - int, new_col - int
 def new_move_validation(input_cord, piece, board):
     new_move = input_cord
 
@@ -206,7 +223,11 @@ def new_move_validation(input_cord, piece, board):
 
     return valid, new_row, new_col
 
-def print_board(board):
+#Skye Smith
+#params: board - 2D list; captured_black - int; captured_white - int
+#prints out the given board
+#return: none
+def print_board(board, captured_black, captured_white):
     print("  0   1   2   3   4   5   6   7")
     for row in range(8):
         print(f"{row} ", end="")
@@ -214,12 +235,36 @@ def print_board(board):
             piece = str(board[row][col])
             print(f"{piece:4}", end="")
         print()
+    print(f"Captured by White: {captured_black} | Captured by Black: {captured_white}")
 
+#Skye Smith
+#params: board - 2D list
+#creates a copy of the entered board
+#return: copy - 2D list
 def copy_board(board):
     copy = []
     for row in board:
         copy.append([] + row)
     
     return copy
+
+#Skye Smith
+#params: none
+#queries the user to determine if they are in checkmate
+#return: end - boolean
+def validate_concession():
+    concede = input("Are you in checkmate? Y or N: ")
+    end = False
+
+    #validate user input
+    while concede.lower() != "y" and concede.lower() != "n":
+        print("Slip of the keyboard? Try again.")
+        concede = input("Are you in checkmate? Y or N: ")
+
+    #return true if the user enters Y
+    if concede.lower() == "y":
+        end = True
+
+    return end
 
 main()

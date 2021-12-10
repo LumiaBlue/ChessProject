@@ -80,10 +80,11 @@ class Queen:
     #update the object values for row and column, and "move" piece from former position to new position in board
     #returns: none 
     def update(self, new_row, new_col, board):
-            board[new_row][new_col] = self
-            board[self.row][self.col] = 0
-            self.row = new_row
-            self.col = new_col
+        board[self.row][self.col] = 0
+        board[new_row][new_col] = self
+        
+        self.row = new_row
+        self.col = new_col
     
     #params: none
     #return the current value of an object's color variable

@@ -66,8 +66,9 @@ class Pawn:
     #returns: none 
     def update(self, new_row, new_col, board):
         self.has_moved = True
-        board[new_row][new_col] = self
         board[self.row][self.col] = 0
+        board[new_row][new_col] = self
+        
         self.row = new_row
         self.col = new_col
     
